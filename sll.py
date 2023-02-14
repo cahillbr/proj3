@@ -16,11 +16,13 @@ class SLLException(Exception):
     """
     pass
 
+
 class SLNode:
     """
     Singly Linked List Node class
     DO NOT CHANGE THIS CLASS IN ANY WAY
     """
+
     def __init__(self, value: object) -> None:
         self.next = None
         self.value = value
@@ -119,12 +121,12 @@ class LinkedList:
         TODO: Write this implementation
         """
         if index < 0:
-            raise self.SLLException("Index cannot be negative.")
-        new_node = SLNode(value, None)
+            raise SLLException("Index cannot be negative.")
+        new_node = SLNode(value)
         node = self._head
         for i in range(index):
             if node.next is None and i + 1 < index:
-                raise self.SLLException("Index out of bounds.")
+                raise SLLException("Index out of bounds.")
             node = node.next
         new_node.next = node.next
         node.next = new_node
