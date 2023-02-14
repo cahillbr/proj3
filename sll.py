@@ -118,17 +118,16 @@ class LinkedList:
         """
         TODO: Write this implementation
         """
-        tmp = self._head
-
-        while index != 0:
-            tmp = tmp.next
-            if tmp ==self.tail:
-                raise SLLException()
-            index -= 1
-        if tmp == None:
-            raise SLLException()
-
-        x = SLNode(value)
+        if index < 0:
+            raise self.SLLException("Index cannot be negative.")
+        new_node = SLNode(value, None)
+        node = self._head
+        for i in range(index):
+            if node.next is None and i + 1 < index:
+                raise self.SLLException("Index out of bounds.")
+            node = node.next
+        new_node.next = node.next
+        node.next = new_node
 
         pass
 
@@ -165,10 +164,16 @@ class LinkedList:
         """
         TODO: Write this implementation
         """
-        if self._head.next == self.tail:
-            raise SLLException()
-
-        self._head.next = self._head.next.next
+        curr = self._head.next
+        prev = self._head
+        while curr:
+            if curr.value == value:
+                prev.next = curr.next
+                # self._size -= 1
+                return True
+            prev = curr
+            curr = curr.next
+        return False
         pass
 
     def count(self, value: object) -> int:
@@ -200,17 +205,18 @@ class LinkedList:
         """
         TODO: Write this implementation
         """
-        new_list = LinkedList()
-        node = self._head.next
-        index = 0
-        while node and index < start_index:
-            node = node.next
-            index += 1
-        while node and size > 0:
-            new_list.insert_back(node.value)
-            node = node.next
-            size -= 1
-        return new_list
+        if start_index < 0 or start_index >= self.length() or size < 0:
+            raise SLLException("Invalid start index or size")
+        if start_index + size > self.length():
+            size = self.length() - start_index
+        lst = LinkedList()
+        curr = self._head.next
+        for i in range(start_index):
+            curr = curr.next
+        for i in range(size):
+            lst.insert_back(curr.value)
+            curr = curr.next
+        return lst
         pass
 
 
