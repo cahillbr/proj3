@@ -118,7 +118,7 @@ class LinkedList:
         """
         TODO: Write this implementation
         """
-        tmp = self.head
+        tmp = self._head
 
         while index != 0:
             tmp = tmp.next
