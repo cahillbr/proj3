@@ -207,18 +207,17 @@ class LinkedList:
         """
         TODO: Write this implementation
         """
-        if start_index < 0 or start_index >= self.length() or size < 0:
-            raise SLLException("Invalid start index or size")
-        if start_index + size > self.length():
-            size = self.length() - start_index
-        lst = LinkedList()
-        curr = self._head.next
-        for i in range(start_index):
-            curr = curr.next
-        for i in range(size):
-            lst.insert_back(curr.value)
-            curr = curr.next
-        return lst
+        new_list = LinkedList()
+        node = self._head.next
+        index = 0
+        while node and index < start_index:
+            node = node.next
+            index += 1
+        while node and size > 0:
+            new_list.insert_back(node.value)
+            node = node.next
+            size -= 1
+        return new_list
         pass
 
 
