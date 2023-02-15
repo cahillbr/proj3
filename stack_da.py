@@ -62,7 +62,7 @@ class Stack:
         TODO: Write this implementation
         """
         if self._da.is_empty():
-            raise StackException("Stack is empty")
+            raise StackException
         return self._da.pop()
 
         pass
@@ -72,7 +72,7 @@ class Stack:
         TODO: Write this implementation
         """
         if self._da.is_empty():
-            raise StackException("Stack is empty")
+            raise StackException
         return self._da[-1]
 
         pass
