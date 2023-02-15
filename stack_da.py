@@ -1,8 +1,8 @@
-# Name:
-# OSU Email:
+# Name:Brendan Cahill
+# OSU Email: cahillbr@oregonstae.edu
 # Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
+# Assignment: 3
+# Due Date: 2/14/23
 # Description:
 
 

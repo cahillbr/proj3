@@ -192,7 +192,6 @@ class DynamicArray:
         """
         TODO: Write this implementation
         """
-        pass
         if not isinstance(index, int) or index < 0 or index > self._size - 1:
             raise DynamicArrayException
         if (start_index + quantity - 1) > self._size -1:
@@ -200,6 +199,7 @@ class DynamicArray:
         end_index = start_index + quantiy
         initializer = [self.data[i] for i in range (start_index, end_index, 1)]
         return DynamicArray(initializer)
+        pass
 
 
 

@@ -1,8 +1,8 @@
-# Name:
-# OSU Email:
+# Name:Brendan Cahill
+# OSU Email: cahillbr@oregonstae.edu
 # Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
+# Assignment: 3
+# Due Date: 2/14/23
 # Description:
 
 
@@ -34,10 +34,10 @@ class Stack:
         if not self.is_empty():
             node = self._head
             out = out + str(node.value)
-            node = node.next
+            node = node.nxt
             while node:
                 out = out + ' -> ' + str(node.value)
-                node = node.next
+                node = node.nxt
         return out + ']'
 
     def is_empty(self) -> bool:
@@ -56,7 +56,7 @@ class Stack:
         length = 0
         while node:
             length += 1
-            node = node.next
+            node = node.nxt
         return length
 
     # -----------------------------------------------------------------------
@@ -66,7 +66,7 @@ class Stack:
         TODO: Write this implementation
         """
         new_node = SLNode(value)
-        new_node.next = self._head
+        new_node.nxt = self._head
         self._head = new_node
         pass
 
@@ -75,9 +75,9 @@ class Stack:
         TODO: Write this implementation
         """
         if self.is_empty():
-            raise StackException("Cannot pop from a vacant stack")
+            raise StackException
         esteem = self._head.value
-        self._head = self._head.next
+        self._head = self._head.nxt
         return esteem
 
         pass
@@ -87,7 +87,7 @@ class Stack:
         TODO: Write this implementation
         """
         if self.is_empty():
-            raise StackException("No components in stack")
+            raise StackException
         return self._head.value
 
         pass

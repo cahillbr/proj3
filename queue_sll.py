@@ -35,10 +35,10 @@ class Queue:
         if not self.is_empty():
             node = self._head
             out = out + str(node.value)
-            node = node.next
+            node = node.nxt
             while node:
                 out = out + ' -> ' + str(node.value)
-                node = node.next
+                node = node.nxt
         return out + ']'
 
     def is_empty(self) -> bool:
@@ -57,7 +57,7 @@ class Queue:
         length = 0
         while node:
             length += 1
-            node = node.next
+            node = node.nxt
         return length
 
     # -----------------------------------------------------------------------
@@ -77,7 +77,7 @@ class Queue:
 
         # Otherwise, add new node to the end of the queue
         else:
-            self._tail.next = node
+            self._tail.nxt = node
         # Update tail to new node
             self._tail = node
         pass
@@ -88,7 +88,7 @@ class Queue:
         """
         # Check if the queue is empty
         if self.is_empty():
-            raise QueueException("Queue is empty")
+            raise QueueException
 
         # Store the value of the head node
         value = self._head.value
@@ -101,7 +101,7 @@ class Queue:
 
         # Otherwise, move head to the next node
         else:
-            self._head = self._head.next
+            self._head = self._head.nxt
 
         # Return the dequeued value
         return value
@@ -112,7 +112,7 @@ class Queue:
         TODO: Write this implementation
         """
         if self.is_empty():
-            raise QueueException("Queue is empty")
+            raise QueueException
 
         # Return the value of the head node
         return self._head.value

@@ -1,8 +1,8 @@
-# Name:
-# OSU Email:
+# Name:Brendan Cahill
+# OSU Email: cahillbr@oregonstae.edu
 # Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
+# Assignment: 3
+# Due Date: 2/14/23
 # Description:
 
 
@@ -82,7 +82,7 @@ class Queue:
         TODO: Write this implementation
         """
         if self.is_empty():
-            raise QueueException("Queue is empty")
+            raise QueueException
         result = self._sa[self._front]
         self._front = self._increment(self._front)
         self._current_size -= 1
@@ -94,7 +94,7 @@ class Queue:
         TODO: Write this implementation
         """
         if self.is_empty():
-            raise QueueException("Queue is empty")
+            raise QueueException
         return self._sa[self._front]
         pass
 
